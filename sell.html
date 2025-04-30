@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Your Waste - EnviroTech Recycling</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<!-- Navbar -->
+<header class="bg-gradient-to-r from-green-700 via-gray-700 to-blue-600 text-white p-4 flex justify-between items-center shadow-md">
+  <h1 class="text-2xl font-bold">EnviroTech Recycling</h1>
+  <nav>
+    <ul class="flex gap-6 text-lg">
+      <li><a href="index.html" class="hover:underline">Home</a></li>
+      <li><a href="shop.html" class="hover:underline">Shop</a></li>
+      <li><a href="sell.html" class="hover:underline">Sell Waste</a></li>
+      <li><a href="services.html" class="hover:underline">Services</a></li>
+      <li><a href="contact.html" class="hover:underline">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Sell Waste Section -->
+<section class="p-10">
+  <h2 class="text-4xl font-bold text-center mb-8">Sell Your Plastic or Metal Waste</h2>
+
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+    <form id="sell-form" class="space-y-6" onsubmit="submitForm(event)">
+      <div>
+        <label class="block mb-2 font-semibold">Describe your waste item:</label>
+        <textarea id="description" class="w-full border px-4 py-2 rounded-lg" required></textarea>
+      </div>
+
+      <div>
+        <label class="block mb-2 font-semibold">Upload a picture:</label>
+        <input type="file" id="image-upload" accept="image/*" onchange="previewImage()" class="w-full border px-4 py-2 rounded-lg" required>
+      </div>
+
+      <div id="image-preview" class="hidden mt-4 text-center">
+        <img src="" alt="Preview" class="mx-auto w-48 h-48 object-cover rounded-lg">
+      </div>
+
+      <button type="submit" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg w-full">
+        Submit for Pickup
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- Searching Agent Modal -->
+<div id="searching-modal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white p-8 rounded-lg text-center max-w-md">
+    <h3 class="text-2xl font-bold mb-4">🔎 Finding a nearby agent...</h3>
+    <p class="text-gray-600">Please wait while we locate the nearest pickup agent.</p>
+  </div>
+</div>
+
+<!-- Agent Found Modal -->
+<div id="success-modal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white p-8 rounded-lg text-center max-w-md">
+    <h3 class="text-2xl font-bold text-green-700 mb-4">🎉 Agent Found!</h3>
+    <p class="text-gray-700 mb-6">An agent is on the way to pick up and pay for your waste.</p>
+    <a href="index.html" class="bg-blue-700 text-white px-6 py-3 rounded-full">Return to Home</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-green-700 text-white text-center p-4 mt-12">
+  &copy; 2025 EnviroTech Recycling Company Ltd. All rights reserved.
+</footer>
+
+<!-- JavaScript -->
+<script>
+// Preview uploaded image
+function previewImage() {
+  const file = document.getElementById('image-upload').files[0];
+  const preview = document.getElementById('image-preview');
+  const img = preview.querySelector('img');
+
+  if (file) {
+    img.src = URL.createObjectURL(file);
+    preview.classList.remove('hidden');
+  }
+}
+
+// Submit form
+function submitForm(event) {
+  event.preventDefault();
+
+  // Show searching modal
+  document.getElementById('searching-modal').classList.remove('hidden');
+  document.getElementById('searching-modal').classList.add('flex');
+
+  // Simulate 3-5 seconds searching
+  setTimeout(() => {
+    document.getElementById('searching-modal').classList.add('hidden');
+    document.getElementById('searching-modal').classList.remove('flex');
+
+    // Show success modal
+    document.getElementById('success-modal').classList.remove('hidden');
+    document.getElementById('success-modal').classList.add('flex');
+  }, Math.random() * 2000 + 3000); // 3 to 5 seconds random
+}
+</script>
+
+</body>
+</html>

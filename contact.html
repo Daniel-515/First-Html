@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - EnviroTech Recycling</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<!-- Navbar -->
+<header class="bg-gradient-to-r from-green-700 via-gray-700 to-blue-600 text-white p-4 flex justify-between items-center shadow-md">
+  <h1 class="text-2xl font-bold">EnviroTech Recycling</h1>
+  <nav>
+    <ul class="flex gap-6 text-lg">
+      <li><a href="index.html" class="hover:underline">Home</a></li>
+      <li><a href="shop.html" class="hover:underline">Shop</a></li>
+      <li><a href="sell.html" class="hover:underline">Sell Waste</a></li>
+      <li><a href="services.html" class="hover:underline">Services</a></li>
+      <li><a href="contact.html" class="hover:underline">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Contact Section -->
+<section class="p-10">
+  <h2 class="text-4xl font-bold text-center mb-10">Contact Us</h2>
+
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md space-y-6">
+    <div>
+      <h3 class="text-2xl font-semibold text-green-700 mb-4">Get in Touch</h3>
+      <ul class="text-lg text-gray-700 space-y-3">
+        <li><strong>Email:</strong> envirotechrecycling@gmail.com</li>
+        <li><strong>Phone:</strong> +233 20 123 4567</li>
+        <li><strong>WhatsApp:</strong> +233 50 765 4321</li>
+        <li><strong>Address:</strong> Buffalo St., Eco Industrial Zone, Adenta-Accra</li>
+      </ul>
+    </div>
+
+    
+  </div>
+</section>
+
+<!-- Floating Chat Icon -->
+<button onclick="openChat()" class="fixed bottom-6 right-6 bg-green-700 hover:bg-green-800 text-white p-4 rounded-full shadow-lg">
+  💬
+</button>
+
+<!-- Chat Popup -->
+<div id="chat-popup" class="fixed bottom-20 right-6 bg-white border rounded-lg shadow-lg w-80 p-4 hidden">
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="font-bold text-green-700">Customer Support</h3>
+    <button onclick="closeChat()" class="text-red-500 font-bold text-xl">&times;</button>
+  </div>
+  <form onsubmit="sendChat(event)" class="space-y-4">
+    <input type="text" id="chat-name" placeholder="Your Name" required class="w-full px-3 py-2 border rounded-lg">
+    <input type="email" id="chat-email" placeholder="Your Email" required class="w-full px-3 py-2 border rounded-lg">
+    <textarea id="chat-message" placeholder="Your Message" required class="w-full px-3 py-2 border rounded-lg"></textarea>
+    <button type="submit" class="bg-green-700 text-white px-4 py-2 rounded-lg w-full">Send</button>
+  </form>
+</div>
+
+<!-- Footer -->
+<footer class="bg-green-700 text-white text-center p-4 mt-12">
+  &copy; 2025 EnviroTech Recycling Company Ltd. All rights reserved.
+</footer>
+
+<!-- JavaScript -->
+<script>
+function openChat() {
+  document.getElementById('chat-popup').classList.remove('hidden');
+}
+
+function closeChat() {
+  document.getElementById('chat-popup').classList.add('hidden');
+}
+
+function sendChat(event) {
+  event.preventDefault();
+  const name = document.getElementById('chat-name').value;
+  alert('Thank you, ' + name + '! Our agent will reply to you shortly.');
+  closeChat();
+}
+</script>
+
+</body>
+</html>
